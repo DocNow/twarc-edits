@@ -14,4 +14,4 @@ def edits(infile, outfile):
     for line in infile:
         for tweet in ensure_flattened(json.loads(line)):
             if 'edit_history_tweet_ids' in tweet and len(tweet['edit_history_tweet_ids']) > 1:
-                click.echo(line, file=outfile, nl=False)
+                click.echo(json.dumps(tweet), file=outfile, nl=False)
